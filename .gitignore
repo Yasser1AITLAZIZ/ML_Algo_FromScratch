@@ -162,3 +162,10 @@ cython_debug/
 #.idea/
 
 env_ml_algo/
+
+env_algo_ml/
+
+*.csv
+
+*.ipynb
+.vscode/
