@@ -1,0 +1,32 @@
+data_path: "boston.csv"
+target_column: "MEDV"  # Replace with the actual target column in your dataset
+test_size: 0.2
+random_state: 42
+iterations: 1000
+alpha: 0.001
+random_init_params: False
+verbose: 0
+
+# Transformation parameters
+scaling: "minmax"  # Choices: "standard" or "minmax"
+one_hot_encode: False
+
+# Feature selection
+numeric_features: all  #  ["feature1", "feature2", "feature3"], use all if all of the columns in dataset are num.
+categorical_features:  #  ["feature4"], use all if all of the columns in dataset are cat.
+
+# Model selection
+model_type: "regression"
+models: ["linear_regression",]
+
+
+# Model hyperparameters 
+
+## Linear regression
+intercept: False
+regularization: "elastic_net"  # Options: "None", "lasso", "ridge", "elastic_net"
+lambda_: 0.1
+l1_ratio: 0.5  # Only for "elastic_net"
+
+# Path for output folder
+#output_path: # "src/experiments/output_folder"
