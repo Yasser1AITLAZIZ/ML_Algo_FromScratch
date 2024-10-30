@@ -8,7 +8,7 @@ from configuration.model_algo.linear_regression.linear_regression import LinearR
 from configuration.data_processing.orchestator import DataProcessing
 from configuration.model_evaluator.orchestator import ModelEvaluator
 from configuration.exporter.orchestrator import Exporter
-from configuration.environment import OUTPUT_FOLDER_PATH
+from configuration.environment_variables import OUTPUT_FOLDER_PATH
 
 
 # Step 1: Setup logger and record start time
