@@ -20,7 +20,7 @@ logger.info("Script execution started.")
 
 # Step 2: Load configuration
 logger.info("Loading configuration")
-config = load_config("src/configuration/config_main.yaml")
+config = load_config("./configuration/config_main.yaml")
 
 # Step 3: Initialize data processing pipeline
 logger.info("Initializing data processing pipeline")
