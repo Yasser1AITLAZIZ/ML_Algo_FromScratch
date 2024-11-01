@@ -10,7 +10,6 @@ from configuration.model_evaluator.orchestator import ModelEvaluator
 from configuration.exporter.orchestrator import Exporter
 from configuration.environment_variables import OUTPUT_FOLDER_PATH
 
-
 # Step 1: Setup logger and record start time
 os.makedirs(OUTPUT_FOLDER_PATH, exist_ok=True)
 log_path = f"{OUTPUT_FOLDER_PATH}" + "/log_file.log"
@@ -22,7 +21,7 @@ logger.info("Script execution started.")
 logger.info("Loading configuration")
 config = load_config("./configuration/config_main.yaml")
 
-# Step 3: Initialize data processing pipeline
+# Step 3: Initialize data processing pipeline.
 logger.info("Initializing data processing pipeline")
 data_processor = DataProcessing(config)
 
