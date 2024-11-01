@@ -11,6 +11,7 @@ The repository also includes a data processing pipeline, model evaluation, loggi
 ## Algorithms Implemented
 
 The algorithms currently available in this repository include:
+
 - **Linear Regression**: Implemented with Lasso, Ridge, and Elastic Net regularization options.
 
 ## Installation
@@ -59,8 +60,8 @@ test_size: 0.2
 random_state: 42
 
 # Data processing settings
-scaling: "minmax"               # Options: "standard" or "minmax"
-one_hot_encode: True             # Apply one-hot encoding for categorical features
+scaling: "minmax" # Options: "standard" or "minmax"
+one_hot_encode: True # Apply one-hot encoding for categorical features
 numeric_features: ["feature1", "feature2"]
 categorical_features: ["feature3"]
 
@@ -68,9 +69,9 @@ categorical_features: ["feature3"]
 models: ["linear_regression"]
 alpha: 0.001
 iterations: 500
-regularization: "ridge"          # Options: "lasso", "ridge", "elastic_net"
+regularization: "ridge" # Options: "lasso", "ridge", "elastic_net"
 lambda_: 0.1
-l1_ratio: 0.5                    # Only for elastic net
+l1_ratio: 0.5 # Only for elastic net
 
 # Export settings
 output_path: "src/experiments"
@@ -80,27 +81,26 @@ output_path: "src/experiments"
 
 1. **Running the Pipeline**: To execute the entire pipeline with custom configurations specified in `config_main.yaml`, run the main script:
 
-    ```bash
-    python src/main.py
-    ```
+   ```bash
+   python src/main.py
+   ```
 
 2. **Logging**: Each run generates a unique log file in the `OUTPUT_FOLDER` variable directory specified in `environment_variables.py`. Logs include informational messages on pipeline stages and any warnings or errors encountered.
 
 3. **Output and Export**: After running the pipeline, results such as trained models, data processing pipelines, test data, and performance metrics are stored in a unique experiment directory (`experiments/experience_<timestamp>`). Each experiment directory contains:
-    - `model.pkl`: The serialized model.
-    - `pipeline.pkl`: The data processing pipeline used.
-    - `train_data.parquet` & `test_data.parquet`: The processed training and test sets.
-    - `model_metrics.csv`: Performance metrics for the model.
-    - `experiment.log`: Log file for the specific run.
+   - `model.pkl`: The serialized model.
+   - `pipeline.pkl`: The data processing pipeline used.
+   - `train_data.parquet` & `test_data.parquet`: The processed training and test sets.
+   - `model_metrics.csv`: Performance metrics for the model.
+   - `experiment.log`: Log file for the specific run.
 
 ## Exécution des expériences
 
 To perform an experiment with different models or parameters:
+
 1. Modify the parameters in `config_main.yaml` as needed.
 2. Run `main.py` again to create a new experiment directory with updated outputs.
 
 ## License
-
-This project is open-source and available under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ## Contributing
