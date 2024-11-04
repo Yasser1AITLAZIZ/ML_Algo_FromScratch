@@ -5,6 +5,7 @@ from sklearn.model_selection import train_test_split
 from utils.loading_config import load_config
 from utils.logger import setup_logger
 from configuration.model_algo.linear_regression.linear_regression import LinearRegression
+from configuration.model_algo.random_forest.random_forest import RandomForest
 from configuration.data_processing.orchestator import DataProcessing
 from configuration.model_evaluator.orchestator import ModelEvaluator
 from configuration.exporter.orchestrator import Exporter
@@ -19,7 +20,7 @@ logger.info("Script execution started.")
 
 # Step 2: Load configuration
 logger.info("Loading configuration")
-config = load_config("./configuration/config_main.yaml")
+config = load_config("src/configuration/config_main.yaml")
 
 # Step 3: Initialize data processing pipeline.
 logger.info("Initializing data processing pipeline")
@@ -56,6 +57,16 @@ for model_name in config["models"]:
             regularization=config["regularization"],
             lambda_=config["lambda_"],
             l1_ratio=config["l1_ratio"],
+        )
+    elif model_name == "random_forest":
+        logger.info("Initializing Random Forest model")
+        model = RandomForest(
+            n_estimators=config["n_estimators"],
+            max_features=config["max_features"],
+            bootstrap=config["bootstrap"],
+            max_depth=config["max_depth"],
+            min_samples_split=config["min_samples_split"],
+            verbose=config["verbose"],
         )
     else:
         raise ValueError(f"Invalid model name: {model_name}")

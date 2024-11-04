@@ -171,5 +171,7 @@ env_algo_ml/
 *.ipynb
 .vscode/
 
+/src/experiments/
+
 # ignore my memo file
 coding_plane.txt
