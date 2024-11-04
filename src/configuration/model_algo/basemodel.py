@@ -71,16 +71,14 @@ class BaseModel(ABC):
         pass
 
     @abstractmethod
-    def gradient_descent(self, X: np.ndarray, y: np.ndarray) -> Tuple[np.ndarray, list]:
+    def optimization_method(self, X: np.ndarray, y: np.ndarray) -> Tuple[np.ndarray, list]:
         """
-        Performs gradient descent to minimize the cost function and optimizes parameters.
+        Performs optimization method to minimize the cost function and optimizes parameters.
 
         Parameters:
         - X (np.ndarray): Feature matrix.
         - y (np.ndarray): Target values.
 
-        Returns:
-        - Tuple[np.ndarray, list]: Optimized parameters and the history of cost values.
         """
         pass
 
@@ -94,7 +92,7 @@ class BaseModel(ABC):
         """
         self.X_train = X_train
         self.y_train = y_train
-        self.theta, self.cost_history = self.gradient_descent(X_train, y_train)
+        self.theta, self.cost_history = self.optimization_method(X_train, y_train)
         if self.verbose:
             print("Training complete. Optimal parameters stored.")
 
@@ -108,6 +106,6 @@ class BaseModel(ABC):
         Returns:
         - np.ndarray: Predicted target values for the test set.
         """
-        if self.theta is None:
+        if self.theta is None and self.model_name == "linear_regression":
             raise ValueError("Model parameters not initialized. Please run fit() first.")
         return self.hypothesis_function(X_test)

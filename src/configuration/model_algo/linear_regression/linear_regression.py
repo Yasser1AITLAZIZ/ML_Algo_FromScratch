@@ -109,7 +109,7 @@ class LinearRegression(BaseModel):
 
         return cost
 
-    def gradient_descent(self, X: np.ndarray, y: np.ndarray) -> Tuple[np.ndarray, list]:
+    def optimization_method(self, X: np.ndarray, y: np.ndarray) -> Tuple[np.ndarray, list]:
         """
         Performs gradient descent to minimize the cost function and optimize parameters.
 
